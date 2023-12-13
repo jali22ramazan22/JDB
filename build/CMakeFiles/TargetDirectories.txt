@@ -1,0 +1,3 @@
+/home/jalil/Desktop/JRD/build/CMakeFiles/JRD.dir
+/home/jalil/Desktop/JRD/build/CMakeFiles/edit_cache.dir
+/home/jalil/Desktop/JRD/build/CMakeFiles/rebuild_cache.dir
