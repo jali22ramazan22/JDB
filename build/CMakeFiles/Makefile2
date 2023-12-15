@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jalil/Desktop/JRD
+CMAKE_SOURCE_DIR = /home/jalil/Desktop/SimpleSQL-like_DB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jalil/Desktop/JRD/build
+CMAKE_BINARY_DIR = /home/jalil/Desktop/SimpleSQL-like_DB/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -72,23 +72,24 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/JRD.dir/clean
+clean: CMakeFiles/lemon.dir/clean
 .PHONY : clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/JRD.dir
 
 # All Build rule for target.
-CMakeFiles/JRD.dir/all:
+CMakeFiles/JRD.dir/all: CMakeFiles/lemon.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/JRD/build/CMakeFiles --progress-num=1,2,3,4 "Built target JRD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=1,2,3,4 "Built target JRD"
 .PHONY : CMakeFiles/JRD.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/JRD.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/JRD/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/JRD.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/JRD/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
 .PHONY : CMakeFiles/JRD.dir/rule
 
 # Convenience name for target.
@@ -99,6 +100,32 @@ JRD: CMakeFiles/JRD.dir/rule
 CMakeFiles/JRD.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/clean
 .PHONY : CMakeFiles/JRD.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/lemon.dir
+
+# All Build rule for target.
+CMakeFiles/lemon.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=5 "Built target lemon"
+.PHONY : CMakeFiles/lemon.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/lemon.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lemon.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
+.PHONY : CMakeFiles/lemon.dir/rule
+
+# Convenience name for target.
+lemon: CMakeFiles/lemon.dir/rule
+.PHONY : lemon
+
+# clean rule for target.
+CMakeFiles/lemon.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/clean
+.PHONY : CMakeFiles/lemon.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/jalil/Desktop/JRD/src
+C_INCLUDES = -I/home/jalil/Desktop/SimpleSQL-like_DB/src
 
 C_FLAGS = -std=gnu11
 

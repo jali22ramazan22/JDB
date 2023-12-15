@@ -1,6 +1,7 @@
-CMakeFiles/JRD.dir/utils.c.o: /home/jalil/Desktop/JRD/utils.c \
- /usr/include/stdc-predef.h /home/jalil/Desktop/JRD/utils.h \
- /home/jalil/Desktop/JRD/common.h /usr/include/stdlib.h \
+CMakeFiles/JRD.dir/utils.c.o: \
+ /home/jalil/Desktop/SimpleSQL-like_DB/utils.c /usr/include/stdc-predef.h \
+ /home/jalil/Desktop/SimpleSQL-like_DB/utils.h \
+ /home/jalil/Desktop/SimpleSQL-like_DB/common.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \

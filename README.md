@@ -1,5 +1,9 @@
 # SimpleSQL-like_DB
 
+### Libs
+- Using Lemon parser to determine the simple syntax in this project
+
+
 ### To-do (For myself)
 - Understand the architecture of SQLite3
 - Write the virtual machine

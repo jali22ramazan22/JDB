@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jalil/Desktop/JRD/utils.c" "CMakeFiles/main.c.dir/utils.c.o" "gcc" "CMakeFiles/main.c.dir/utils.c.o.d"
   )
 
 # Targets to which this target links.
