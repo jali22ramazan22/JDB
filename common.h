@@ -8,7 +8,7 @@
 
 typedef enum{
     START_PROGRAM, //0
-    LOOP_PROGRAM //1
+    LOOP_PROGRAM, //1
 }Prompt_status;
 
 
@@ -41,5 +41,6 @@ typedef struct{
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
+#include <stdint.h>
 #include <assert.h>
 #endif

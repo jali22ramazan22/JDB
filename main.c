@@ -34,6 +34,7 @@ MetaCommandResult do_meta_command(Input_Buffer* input_buffer){
     }
 }
 
+//just tokenizing the string
 void temporary(Input_Buffer* input_buffer){
     read_input(input_buffer);
     char** tokenized_buffer = tokenize_string(input_buffer);
@@ -44,12 +45,11 @@ void temporary(Input_Buffer* input_buffer){
 
 
 PrepareResult prepare_statement(Input_Buffer* input_buffer, Statement* statement) {
-  if (strncmp(input_buffer->buffer, "insert", 6) == 0) {
+  if(strncmp(input_buffer->buffer, "insert", 6) == 0) {
     statement->type = STATEMENT_INSERT;
-    temporary(input_buffer);
     return PREPARE_SUCCESS;
   }
-  if (strcmp(input_buffer->buffer, "select") == 0) {
+  if(strcmp(input_buffer->buffer, "select") == 0) {
     statement->type = STATEMENT_SELECT;
     return PREPARE_SUCCESS;
   }
@@ -68,6 +68,9 @@ void execute_statement(Statement* statement) {
         case (STATEMENT_SELECT):
             printf("This is where we would do a select.\n");
             break;
+        case (STATEMENT_CREATE):
+            printf("This is where we would do a create.\n");
+            break;
     }
 }
 
@@ -76,8 +79,10 @@ void execute_statement(Statement* statement) {
 int main(int argc, char** argv){
     Input_Buffer* input_buffer = new_input_buffer();
     print_prompt(START_PROGRAM);
+
     while(true){
         print_prompt(LOOP_PROGRAM);
+
         read_input(input_buffer);
         if(input_buffer->buffer[0] == '.'){
             switch(do_meta_command(input_buffer)){
@@ -91,13 +96,13 @@ int main(int argc, char** argv){
         
         Statement statement;
         switch (prepare_statement(input_buffer, &statement)){
-        case (PREPARE_SUCCESS):
-            break;
-        case (PREPARE_UNRECOGNIZED_STATEMENT):
-            printf("Unrecognized keyword at start of '%s'.\n", input_buffer->buffer);
-            continue;
-        execute_statement(&statement);
-        printf("Executed.\n");
+            case (PREPARE_SUCCESS):
+                break;
+            case (PREPARE_UNRECOGNIZED_STATEMENT):
+                printf("Unrecognized keyword at start of '%s'.\n", input_buffer->buffer);
+                continue;
+            execute_statement(&statement);
+            printf("Executed.\n");
         }
     }
 }

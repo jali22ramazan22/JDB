@@ -11,7 +11,8 @@ size_t count_words(char* str, int len) {
         if (str[i] != ' ' && !in_word) {
             in_word = 1;
             ++words;
-        } else if (str[i] == ' ') {
+        } 
+        else if (str[i] == ' ') {
             in_word = 0;
         }
     }
@@ -33,7 +34,8 @@ int* words_len(char* str, int len) {
     for (int i = 0; i < len; ++i) {
         if (str[i] != ' ') {
             ++word_length;
-        } else if (word_length > 0) {
+        } 
+        else if (word_length > 0) {
             words_arr[j++] = word_length;
             word_length = 0;
         }

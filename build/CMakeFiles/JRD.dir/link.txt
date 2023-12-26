@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/JRD.dir/main.c.o CMakeFiles/JRD.dir/utils.c.o CMakeFiles/JRD.dir/tokenizer.c.o -o JRD 
+/usr/bin/cc CMakeFiles/JRD.dir/main.c.o CMakeFiles/JRD.dir/utils.c.o CMakeFiles/JRD.dir/tokenizer.c.o CMakeFiles/JRD.dir/custom_table.c.o -o JRD 

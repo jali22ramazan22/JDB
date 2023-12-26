@@ -142,6 +142,30 @@ lemon/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/build
 .PHONY : lemon/fast
 
+custom_table.o: custom_table.c.o
+.PHONY : custom_table.o
+
+# target to build an object file
+custom_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/custom_table.c.o
+.PHONY : custom_table.c.o
+
+custom_table.i: custom_table.c.i
+.PHONY : custom_table.i
+
+# target to preprocess a source file
+custom_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/custom_table.c.i
+.PHONY : custom_table.c.i
+
+custom_table.s: custom_table.c.s
+.PHONY : custom_table.s
+
+# target to generate assembly for a file
+custom_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/custom_table.c.s
+.PHONY : custom_table.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -224,6 +248,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... lemon"
 	@echo "... JRD"
+	@echo "... custom_table.o"
+	@echo "... custom_table.i"
+	@echo "... custom_table.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
