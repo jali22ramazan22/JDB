@@ -66,6 +66,10 @@ CMakeFiles/JRD.dir/custom_table.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/custo
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/assert.h
 
 CMakeFiles/JRD.dir/main.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/main.c \
@@ -133,6 +137,10 @@ CMakeFiles/JRD.dir/main.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/main.c \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/assert.h \
   /home/jalil/Desktop/SimpleSQL-like_DB/utils.h
 
@@ -201,6 +209,10 @@ CMakeFiles/JRD.dir/tokenizer.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/tokenize
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/assert.h \
   /home/jalil/Desktop/SimpleSQL-like_DB/utils.h
 
@@ -269,6 +281,10 @@ CMakeFiles/JRD.dir/utils.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/utils.c \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/assert.h
 
 
@@ -276,9 +292,17 @@ CMakeFiles/JRD.dir/utils.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/utils.c \
 
 /home/jalil/Desktop/SimpleSQL-like_DB/utils.h:
 
+/usr/include/assert.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
 /home/jalil/Desktop/SimpleSQL-like_DB/main.c:
 
-/usr/include/assert.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/stdint.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 

@@ -3,9 +3,6 @@
 #define COMMON_H
 #define BUFFER 256
 
-
-
-
 typedef enum{
     START_PROGRAM, //0
     LOOP_PROGRAM, //1

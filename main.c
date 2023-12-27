@@ -1,8 +1,7 @@
 #include "tokenizer.h"
-
 #include "common.h"
 #include "utils.h"
-
+static __ssize_t TableMap_size = 5;
 
 void print_prompt(int status){
     if(status == START_PROGRAM){
