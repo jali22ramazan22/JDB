@@ -15,6 +15,8 @@
 - Written REPL to interact with the user
 - Written Buffer_Input to be used to send the SQL-queries
 - Written tokenizer to divide the buffer input into tokens
+- Written the custom table creation support ?
+- Written the storage about the custom table skeleton info ?
 
 
 ### To install on your machine
