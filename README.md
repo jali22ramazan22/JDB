@@ -1,13 +1,7 @@
 # SimpleSQL-like_DB
 
-### Libs
-- Using Lemon parser to determine the simple syntax in this project
-
-
 ### To-do (For myself)
-- Understand the architecture of SQLite3
 - Write the virtual machine
-- Write the custom database support
 - Write the simple virtual machine support
 - Implement the B-tree storing data as in disk as in the memory layout
 
