@@ -7,6 +7,7 @@
         "unordered_map": "c",
         "vector": "c",
         "initializer_list": "c",
-        "custom_table.h": "c"
+        "custom_table.h": "c",
+        "utils.h": "c"
     }
 }

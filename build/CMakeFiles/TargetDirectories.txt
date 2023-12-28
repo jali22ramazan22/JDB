@@ -1,4 +1,8 @@
 /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles/JRD.dir
-/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles/lemon.dir
+/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles/test.dir
 /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles/edit_cache.dir
 /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles/rebuild_cache.dir
+/home/jalil/Desktop/SimpleSQL-like_DB/build/tests/CMakeFiles/tests.dir
+/home/jalil/Desktop/SimpleSQL-like_DB/build/tests/CMakeFiles/test.dir
+/home/jalil/Desktop/SimpleSQL-like_DB/build/tests/CMakeFiles/edit_cache.dir
+/home/jalil/Desktop/SimpleSQL-like_DB/build/tests/CMakeFiles/rebuild_cache.dir

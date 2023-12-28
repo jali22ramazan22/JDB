@@ -64,22 +64,38 @@ CMAKE_BINARY_DIR = /home/jalil/Desktop/SimpleSQL-like_DB/build
 
 # The main recursive "all" target.
 all: CMakeFiles/JRD.dir/all
+all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/JRD.dir/clean
-clean: CMakeFiles/lemon.dir/clean
+clean: tests/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory tests
+
+# Recursive "all" directory target.
+tests/all: tests/CMakeFiles/tests.dir/all
+.PHONY : tests/all
+
+# Recursive "preinstall" directory target.
+tests/preinstall:
+.PHONY : tests/preinstall
+
+# Recursive "clean" directory target.
+tests/clean: tests/CMakeFiles/tests.dir/clean
+.PHONY : tests/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/JRD.dir
 
 # All Build rule for target.
-CMakeFiles/JRD.dir/all: CMakeFiles/lemon.dir/all
+CMakeFiles/JRD.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target JRD"
@@ -87,7 +103,7 @@ CMakeFiles/JRD.dir/all: CMakeFiles/lemon.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/JRD.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/JRD.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
 .PHONY : CMakeFiles/JRD.dir/rule
@@ -102,30 +118,30 @@ CMakeFiles/JRD.dir/clean:
 .PHONY : CMakeFiles/JRD.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lemon.dir
+# Target rules for target tests/CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/lemon.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=6 "Built target lemon"
-.PHONY : CMakeFiles/lemon.dir/all
+tests/CMakeFiles/tests.dir/all:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=6,7,8,9 "Built target tests"
+.PHONY : tests/CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lemon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lemon.dir/all
+tests/CMakeFiles/tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
-.PHONY : CMakeFiles/lemon.dir/rule
+.PHONY : tests/CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
-lemon: CMakeFiles/lemon.dir/rule
-.PHONY : lemon
+tests: tests/CMakeFiles/tests.dir/rule
+.PHONY : tests
 
 # clean rule for target.
-CMakeFiles/lemon.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/clean
-.PHONY : CMakeFiles/lemon.dir/clean
+tests/CMakeFiles/tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/clean
+.PHONY : tests/CMakeFiles/tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/jalil/Desktop/SimpleSQL-like_DB/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -130,17 +140,17 @@ JRD/fast:
 .PHONY : JRD/fast
 
 #=============================================================================
-# Target rules for targets named lemon
+# Target rules for targets named tests
 
 # Build rule for target.
-lemon: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lemon
-.PHONY : lemon
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
 
 # fast build rule for target.
-lemon/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lemon.dir/build.make CMakeFiles/lemon.dir/build
-.PHONY : lemon/fast
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
+.PHONY : tests/fast
 
 custom_table.o: custom_table.c.o
 .PHONY : custom_table.o
@@ -246,8 +256,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... lemon"
+	@echo "... test"
 	@echo "... JRD"
+	@echo "... tests"
 	@echo "... custom_table.o"
 	@echo "... custom_table.i"
 	@echo "... custom_table.s"
