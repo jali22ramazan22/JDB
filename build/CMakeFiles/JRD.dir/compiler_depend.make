@@ -142,7 +142,8 @@ CMakeFiles/JRD.dir/main.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/main.c \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/assert.h \
-  /home/jalil/Desktop/SimpleSQL-like_DB/utils.h
+  /home/jalil/Desktop/SimpleSQL-like_DB/utils.h \
+  /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.h
 
 CMakeFiles/JRD.dir/tokenizer.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c \
   /usr/include/stdc-predef.h \
