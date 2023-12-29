@@ -98,12 +98,12 @@ tests/clean: tests/CMakeFiles/tests.dir/clean
 CMakeFiles/JRD.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target JRD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target JRD"
 .PHONY : CMakeFiles/JRD.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/JRD.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/JRD.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
 .PHONY : CMakeFiles/JRD.dir/rule
@@ -124,12 +124,12 @@ CMakeFiles/JRD.dir/clean:
 tests/CMakeFiles/tests.dir/all:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=6,7,8,9 "Built target tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target tests"
 .PHONY : tests/CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/tests.dir/rule

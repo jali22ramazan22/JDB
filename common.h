@@ -2,7 +2,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 #define BUFFER 256
-
+#define MAX_NAME 64
 typedef enum{
     START_PROGRAM, //0
     LOOP_PROGRAM, //1

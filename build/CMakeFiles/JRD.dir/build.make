@@ -73,64 +73,79 @@ CMakeFiles/JRD.dir/main.c.o: CMakeFiles/JRD.dir/flags.make
 CMakeFiles/JRD.dir/main.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/main.c
 CMakeFiles/JRD.dir/main.c.o: CMakeFiles/JRD.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/JRD.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/main.c.o -MF CMakeFiles/JRD.dir/main.c.o.d -o CMakeFiles/JRD.dir/main.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/main.c
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/main.c.o -MF CMakeFiles/JRD.dir/main.c.o.d -o CMakeFiles/JRD.dir/main.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/main.c
 
 CMakeFiles/JRD.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/JRD.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/main.c > CMakeFiles/JRD.dir/main.c.i
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/main.c > CMakeFiles/JRD.dir/main.c.i
 
 CMakeFiles/JRD.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/JRD.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/main.c -o CMakeFiles/JRD.dir/main.c.s
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/main.c -o CMakeFiles/JRD.dir/main.c.s
 
 CMakeFiles/JRD.dir/utils.c.o: CMakeFiles/JRD.dir/flags.make
 CMakeFiles/JRD.dir/utils.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/utils.c
 CMakeFiles/JRD.dir/utils.c.o: CMakeFiles/JRD.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/JRD.dir/utils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/utils.c.o -MF CMakeFiles/JRD.dir/utils.c.o.d -o CMakeFiles/JRD.dir/utils.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/utils.c
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/utils.c.o -MF CMakeFiles/JRD.dir/utils.c.o.d -o CMakeFiles/JRD.dir/utils.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/utils.c
 
 CMakeFiles/JRD.dir/utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/JRD.dir/utils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/utils.c > CMakeFiles/JRD.dir/utils.c.i
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/utils.c > CMakeFiles/JRD.dir/utils.c.i
 
 CMakeFiles/JRD.dir/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/JRD.dir/utils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/utils.c -o CMakeFiles/JRD.dir/utils.c.s
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/utils.c -o CMakeFiles/JRD.dir/utils.c.s
 
 CMakeFiles/JRD.dir/tokenizer.c.o: CMakeFiles/JRD.dir/flags.make
 CMakeFiles/JRD.dir/tokenizer.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c
 CMakeFiles/JRD.dir/tokenizer.c.o: CMakeFiles/JRD.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/JRD.dir/tokenizer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/tokenizer.c.o -MF CMakeFiles/JRD.dir/tokenizer.c.o.d -o CMakeFiles/JRD.dir/tokenizer.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/tokenizer.c.o -MF CMakeFiles/JRD.dir/tokenizer.c.o.d -o CMakeFiles/JRD.dir/tokenizer.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c
 
 CMakeFiles/JRD.dir/tokenizer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/JRD.dir/tokenizer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c > CMakeFiles/JRD.dir/tokenizer.c.i
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c > CMakeFiles/JRD.dir/tokenizer.c.i
 
 CMakeFiles/JRD.dir/tokenizer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/JRD.dir/tokenizer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c -o CMakeFiles/JRD.dir/tokenizer.c.s
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c -o CMakeFiles/JRD.dir/tokenizer.c.s
 
 CMakeFiles/JRD.dir/custom_table.c.o: CMakeFiles/JRD.dir/flags.make
 CMakeFiles/JRD.dir/custom_table.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c
 CMakeFiles/JRD.dir/custom_table.c.o: CMakeFiles/JRD.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/JRD.dir/custom_table.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/custom_table.c.o -MF CMakeFiles/JRD.dir/custom_table.c.o.d -o CMakeFiles/JRD.dir/custom_table.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/custom_table.c.o -MF CMakeFiles/JRD.dir/custom_table.c.o.d -o CMakeFiles/JRD.dir/custom_table.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c
 
 CMakeFiles/JRD.dir/custom_table.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/JRD.dir/custom_table.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c > CMakeFiles/JRD.dir/custom_table.c.i
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c > CMakeFiles/JRD.dir/custom_table.c.i
 
 CMakeFiles/JRD.dir/custom_table.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/JRD.dir/custom_table.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c -o CMakeFiles/JRD.dir/custom_table.c.s
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c -o CMakeFiles/JRD.dir/custom_table.c.s
+
+CMakeFiles/JRD.dir/TableMap.c.o: CMakeFiles/JRD.dir/flags.make
+CMakeFiles/JRD.dir/TableMap.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.c
+CMakeFiles/JRD.dir/TableMap.c.o: CMakeFiles/JRD.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/JRD.dir/TableMap.c.o"
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/JRD.dir/TableMap.c.o -MF CMakeFiles/JRD.dir/TableMap.c.o.d -o CMakeFiles/JRD.dir/TableMap.c.o -c /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.c
+
+CMakeFiles/JRD.dir/TableMap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/JRD.dir/TableMap.c.i"
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.c > CMakeFiles/JRD.dir/TableMap.c.i
+
+CMakeFiles/JRD.dir/TableMap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/JRD.dir/TableMap.c.s"
+	/usr/bin/clang-14 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.c -o CMakeFiles/JRD.dir/TableMap.c.s
 
 # Object files for target JRD
 JRD_OBJECTS = \
 "CMakeFiles/JRD.dir/main.c.o" \
 "CMakeFiles/JRD.dir/utils.c.o" \
 "CMakeFiles/JRD.dir/tokenizer.c.o" \
-"CMakeFiles/JRD.dir/custom_table.c.o"
+"CMakeFiles/JRD.dir/custom_table.c.o" \
+"CMakeFiles/JRD.dir/TableMap.c.o"
 
 # External object files for target JRD
 JRD_EXTERNAL_OBJECTS =
@@ -139,9 +154,10 @@ JRD: CMakeFiles/JRD.dir/main.c.o
 JRD: CMakeFiles/JRD.dir/utils.c.o
 JRD: CMakeFiles/JRD.dir/tokenizer.c.o
 JRD: CMakeFiles/JRD.dir/custom_table.c.o
+JRD: CMakeFiles/JRD.dir/TableMap.c.o
 JRD: CMakeFiles/JRD.dir/build.make
 JRD: CMakeFiles/JRD.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable JRD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jalil/Desktop/SimpleSQL-like_DB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable JRD"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/JRD.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

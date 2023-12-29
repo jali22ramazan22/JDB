@@ -152,6 +152,30 @@ tests/fast:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/tests.dir/build.make tests/CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
+TableMap.o: TableMap.c.o
+.PHONY : TableMap.o
+
+# target to build an object file
+TableMap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/TableMap.c.o
+.PHONY : TableMap.c.o
+
+TableMap.i: TableMap.c.i
+.PHONY : TableMap.i
+
+# target to preprocess a source file
+TableMap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/TableMap.c.i
+.PHONY : TableMap.c.i
+
+TableMap.s: TableMap.c.s
+.PHONY : TableMap.s
+
+# target to generate assembly for a file
+TableMap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/TableMap.c.s
+.PHONY : TableMap.c.s
+
 custom_table.o: custom_table.c.o
 .PHONY : custom_table.o
 
@@ -259,6 +283,9 @@ help:
 	@echo "... test"
 	@echo "... JRD"
 	@echo "... tests"
+	@echo "... TableMap.o"
+	@echo "... TableMap.i"
+	@echo "... TableMap.s"
 	@echo "... custom_table.o"
 	@echo "... custom_table.i"
 	@echo "... custom_table.s"

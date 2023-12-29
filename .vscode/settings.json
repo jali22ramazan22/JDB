@@ -8,6 +8,7 @@
         "vector": "c",
         "initializer_list": "c",
         "custom_table.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "tokenizer.h": "c"
     }
 }
