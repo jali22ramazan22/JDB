@@ -5,8 +5,6 @@
     The tokenizer + parser goes here and creates the table.
 
     To do: collect it into the abstract the data part with offset info and store it as a 'page' in RAM
-
-
 */
 
 /* The table structure creation */
@@ -51,10 +49,12 @@ uint32_t get_size(Datatype type){
     }
 }
 
+
+
 uint32_t* get_offsets(Table* table) {
 
     uint32_t* offsets = (uint32_t*)malloc(sizeof(uint32_t) * table->column_count + 1);
-    offsets[0] = 4; // for hash code of table
+    offsets[0] = 8; // for hash code of table
     for (size_t i = 1; i < table->column_count + 1; ++i) {
         if (i > 1){
             offsets[i] = offsets[i - 1] + get_size(table->columns[i].type);
@@ -104,9 +104,66 @@ void free_row(Row* row) {
     }
     free(row);
 }
- 
+RowNode* extractNode(Row* row, int index){
+    if(row->size < index){
+        printf("Out of List\n");
+        return NULL;
+    }
+    RowNode* it = row->head;
+    for(int i = 0; i < index; ++i){
+        it = it->next;
+    }
+    return it;
+}
+
+
+Row* InitRecord(TableMap* T_Map, char* TableName, void** values) {
+    Table* TableScheme = findTable(T_Map, TableName);
+    if (TableScheme == NULL) {
+        return NULL;
+    }
+
+    Row* new_record = create_row();
+    if (new_record == NULL) {
+        return NULL;
+    }
+
+    int offset = 0;
+    for (int i = 0; i < TableScheme->column_count; ++i) {
+        add_to_row(new_record, values + offset, TableScheme->columns[i].type);
+        offset += (int)get_size(TableScheme->columns[i].type);
+    }
+
+    return new_record;
+}
 
 
 
-
+void* serialize_row(Row* Record, TableMap* T_Map, char* TableName){
+    // Finding concrete skeleton of Table
+    Table* TableScheme = findTable(T_Map, TableName);
+    if (TableScheme == NULL) {
+        return NULL;
+    }
+    size_t hashIndex = hash(TableName, T_Map->TableMap_Size);
+    if(T_Map->hash_table[hashIndex].table_ptr == NULL){
+        return NULL;
+    }
+    uint32_t* offsets = get_offsets(TableScheme);
+    uint32_t bytesToAlloc = 0;
+    for(int i = 0; i <= TableScheme->column_count; ++i){
+        bytesToAlloc += offsets[i];
+    }
+    //copying abstract blocks of data
+    void* serialized_data = malloc(bytesToAlloc);
+    memcpy(serialized_data, (const void *)&hashIndex, sizeof(hashIndex));
+    int genOffset = 0;
+    for(int i = 1; i <= TableScheme->column_count; ++i){
+        RowNode* columnPointer = extractNode(Record, i);
+        genOffset += (int)offsets[i];
+        memcpy(serialized_data + genOffset, columnPointer->data, get_size(columnPointer->type));
+    }
+    free(offsets);
+    return serialized_data;
+}
 

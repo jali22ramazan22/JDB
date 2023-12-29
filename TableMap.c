@@ -47,6 +47,10 @@ Table* findTable(TableMap* T_Map, char* TableName) {
     return T_Map->hash_table[hashIndex].table_ptr;
 }
 
+void DropTable(TableMap* T_Map, char* TableName){
+    Table* DroppingTable = findTable(T_Map, TableName);
+    free_table(DroppingTable);
+}
 
 void FreeTableMap(TableMap* T_Map){
     for(int i = 0; i < T_Map->TableMap_Size; ++i){
