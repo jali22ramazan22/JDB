@@ -92,11 +92,14 @@ static void run_test_table_creation() {
 void serializing_tests(){
     TableMap* T_Map = init_TableMap(100);
     insert_tables(T_Map);
-    Row* new_record = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
-    void* page = serialize_row(new_record, T_Map, "Employees");
 
-
-
+    Row* new_record_1 = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
+    Row* new_record_2 = InitRecord(T_Map, "Products", (void*[]){strdup("Shoes"), &(int){1}, &(double){39.99}, &(double){5.40}});
+    void* page_1 = serialize_row(new_record_1, T_Map, "Employees");
+    void* page_2 = serialize_row(new_record_2, T_Map, "Products");
+    Row* recovered_record_1 = deserialize_row(T_Map, page_1);
+    Row* recovered_record_2 = deserialize_row(T_Map, page_2);
+    print_row(recovered_record_1);
 }
 
 

@@ -54,6 +54,9 @@ uint32_t get_size(Datatype type){
 
 uint32_t* get_offsets(Table* table) {
     uint32_t* offsets = (uint32_t*)malloc(sizeof(uint32_t) * (table->column_count + 1));
+    if(offsets == NULL){
+        return NULL;
+    }
     offsets[0] = 8;
     for (size_t i = 0; i < table->column_count; ++i) {
         offsets[i + 1] = get_size(table->columns[i].type);
@@ -98,7 +101,35 @@ void* remove_from_row(Row* row) {
     row->size--;
     return data;
 }
- 
+void print_row(Row* row) {
+    if (row == NULL) {
+        printf("Row is NULL\n");
+        return;
+    }
+
+    printf("Row Size: %d\n", row->size);
+
+    RowNode* current = row->head;
+
+    while (current != NULL) {
+        switch (current->type) {
+            case INT:
+                printf("Type: INT, Value: %d\n", *((int*)current->data));
+                break;
+            case VARCHAR:
+                printf("Type: VARCHAR, Value: %s\n", (char*)current->data);
+                break;
+            case DOUBLE:
+                printf("Type: DOUBLE, Value: %lf\n", *((double*)current->data));
+                break;
+            default:
+                printf("Unknown Type\n");
+                break;
+        }
+
+        current = current->next;
+    }
+}
 void free_row(Row* row) {
     RowNode* current_node = row->head;
     while (current_node != NULL) {
@@ -126,19 +157,18 @@ Row* InitRecord(TableMap* T_Map, char* TableName, void** values) {
     if (TableScheme == NULL) {
         return NULL;
     }
+
     Row* new_record = create_row();
     if (new_record == NULL) {
         return NULL;
     }
 
-    int offset = 0;
     for (int i = 0; i < TableScheme->column_count; ++i) {
-        add_to_row(new_record, values + offset, TableScheme->columns[i].type);
-        offset += (int)get_size(TableScheme->columns[i].type);
+        add_to_row(new_record, values[i], TableScheme->columns[i].type);
     }
+
     return new_record;
 }
-
 
 
 void* serialize_row(Row* Record, TableMap* T_Map, char* TableName) {
@@ -178,15 +208,26 @@ void* serialize_row(Row* Record, TableMap* T_Map, char* TableName) {
         // Check if columnPointer is not NULL before accessing its data
         if (columnPointer != NULL) {
             memcpy(serialized_data + totalOffset, columnPointer->data, get_size(columnPointer->type));
-            totalOffset += offsets[i];
+            totalOffset += (int)offsets[i];
         }
     }
-
     free(offsets);
     return serialized_data;
 }
 
+Row* deserialize_row(TableMap* T_Map, void* serialized_data) {
+    size_t hashIndex = *((size_t*)serialized_data);
+    Table* TableScheme = findTable(T_Map, T_Map->hash_table[hashIndex].table_ptr->tableName);
+    uint32_t* offsets = get_offsets(TableScheme);
 
-Row* deserialize_row(TableMap* T_Map, void* serialized_data){
+    Row* recovered_record = create_row();
+    int totalOffset = 8;
+    for (int i = 1; i <= TableScheme->column_count; ++i) {
+        add_to_row(recovered_record, (serialized_data + totalOffset), TableScheme->columns[i-1].type);
+        totalOffset += (int)offsets[i];
+    }
 
+    free(offsets);
+
+    return recovered_record;
 }

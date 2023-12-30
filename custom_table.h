@@ -30,6 +30,7 @@ typedef struct list {
 Row* create_row();
 void add_to_row(Row* row, void* data, Datatype type);
 void* remove_from_row(Row* row);
+void print_row(Row* row);
 void free_row(Row* row);
 RowNode* extractNode(Row* row, int index);
 Row* InitRecord(TableMap* T_Map, char* TableName, void** values);
