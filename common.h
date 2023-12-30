@@ -3,6 +3,13 @@
 #define COMMON_H
 #define BUFFER 256
 #define MAX_NAME 64
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <time.h>
+#include <stdint.h>
+#include <assert.h>
 typedef enum{
     START_PROGRAM, //0
     LOOP_PROGRAM, //1
@@ -28,13 +35,32 @@ typedef enum {
 typedef struct{
     StatementType type;
 }Statement;
+typedef enum{
+    INT,
+    VARCHAR,
+    DOUBLE
+} Datatype;
 
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
-#include <time.h>
-#include <stdint.h>
-#include <assert.h>
+typedef struct {
+    Datatype type;
+    char column_name[BUFFER];
+}TableColumn;
+
+typedef struct{
+    TableColumn* columns;
+    size_t column_count;
+    char tableName[MAX_NAME];
+}Table;
+
+typedef struct Container{
+    Table* table_ptr;
+}TableContainer;
+
+typedef struct{
+    TableContainer* hash_table;
+    size_t TableMap_Size;
+}TableMap;
+
+
 #endif

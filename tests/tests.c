@@ -89,6 +89,18 @@ static void run_test_table_creation() {
 }
 
 
+void serializing_tests(){
+    TableMap* T_Map = init_TableMap(100);
+    insert_tables(T_Map);
+    Row* new_record = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
+    void* page = serialize_row(new_record, T_Map, "Employees");
+
+
+
+}
+
+
+
 int main(int argc, char** argv) {
     if(argc != 2){
         printf("[HINT] try the arguments related to the tests names\n");
@@ -108,8 +120,11 @@ int main(int argc, char** argv) {
     else if(strcmp("table_creation", argv[1]) == 0){
         run_test_table_creation();
     }
+    else if(strcmp("serialize", argv[1]) == 0){
+        serializing_tests();
+    }
     else{
-        printf("[HINT]: \n'tokenizer_test' - 1 test\n'table_creation' - 2 test\n");
+        printf("[HINT]: \n'tokenizer_test' - 1 test\n'table_creation' - 2 test\n'serialize' - 3 test\n");
     }
     return 0;
 }

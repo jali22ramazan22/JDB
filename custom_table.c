@@ -41,7 +41,7 @@ uint32_t get_size(Datatype type){
         case INT:
             return 4;
         case VARCHAR:
-            return 50;
+            return 64;
         case DOUBLE:
             return 8;
         default:
@@ -51,35 +51,39 @@ uint32_t get_size(Datatype type){
 
 
 
-uint32_t* get_offsets(Table* table) {
 
-    uint32_t* offsets = (uint32_t*)malloc(sizeof(uint32_t) * table->column_count + 1);
-    offsets[0] = 8; // for hash code of table
-    for (size_t i = 1; i < table->column_count + 1; ++i) {
-        if (i > 1){
-            offsets[i] = offsets[i - 1] + get_size(table->columns[i].type);
-        } 
-        else{
-            offsets[i] = get_size(table->columns[i].type);
-        }
+uint32_t* get_offsets(Table* table) {
+    uint32_t* offsets = (uint32_t*)malloc(sizeof(uint32_t) * (table->column_count + 1));
+    offsets[0] = 8;
+    for (size_t i = 0; i < table->column_count; ++i) {
+        offsets[i + 1] = get_size(table->columns[i].type);
     }
+
     return offsets;
 }
-
-
 Row* create_row() {
     Row* new_row = (Row*)malloc(sizeof(Row));
     new_row->size = 0;
     new_row->head = NULL;
     return new_row;
 }
- 
+
 void add_to_row(Row* row, void* data, Datatype type) {
     RowNode* new_node = (RowNode*)malloc(sizeof(RowNode));
     new_node->data = data;
-    new_node->next = row->head;
     new_node->type = type;
-    row->head = new_node;
+    new_node->next = NULL;
+    if (row->head == NULL) {
+        row->head = new_node;
+    } else {
+        RowNode* current = row->head;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+
+        current->next = new_node;
+    }
+
     row->size++;
 }
  
@@ -122,7 +126,6 @@ Row* InitRecord(TableMap* T_Map, char* TableName, void** values) {
     if (TableScheme == NULL) {
         return NULL;
     }
-
     Row* new_record = create_row();
     if (new_record == NULL) {
         return NULL;
@@ -133,37 +136,57 @@ Row* InitRecord(TableMap* T_Map, char* TableName, void** values) {
         add_to_row(new_record, values + offset, TableScheme->columns[i].type);
         offset += (int)get_size(TableScheme->columns[i].type);
     }
-
     return new_record;
 }
 
 
 
-void* serialize_row(Row* Record, TableMap* T_Map, char* TableName){
+void* serialize_row(Row* Record, TableMap* T_Map, char* TableName) {
     // Finding concrete skeleton of Table
     Table* TableScheme = findTable(T_Map, TableName);
     if (TableScheme == NULL) {
         return NULL;
     }
+
     size_t hashIndex = hash(TableName, T_Map->TableMap_Size);
-    if(T_Map->hash_table[hashIndex].table_ptr == NULL){
+    if (T_Map->hash_table[hashIndex].table_ptr == NULL) {
         return NULL;
     }
+
     uint32_t* offsets = get_offsets(TableScheme);
     uint32_t bytesToAlloc = 0;
-    for(int i = 0; i <= TableScheme->column_count; ++i){
+
+    // Calculate total bytes to allocate
+    for (int i = 0; i <= TableScheme->column_count; ++i) {
         bytesToAlloc += offsets[i];
     }
-    //copying abstract blocks of data
+
+    // Allocate memory for serialized data
     void* serialized_data = malloc(bytesToAlloc);
-    memcpy(serialized_data, (const void *)&hashIndex, sizeof(hashIndex));
-    int genOffset = 0;
-    for(int i = 1; i <= TableScheme->column_count; ++i){
-        RowNode* columnPointer = extractNode(Record, i);
-        genOffset += (int)offsets[i];
-        memcpy(serialized_data + genOffset, columnPointer->data, get_size(columnPointer->type));
+    if (serialized_data == NULL) {
+        free(offsets);
+        return NULL;  // Failed to allocate memory
     }
+
+    // Copy hashIndex to the beginning
+    memcpy(serialized_data, (const void*)&hashIndex, sizeof(hashIndex));
+    int totalOffset = sizeof(hashIndex);  // Start from the next offset
+
+    for (int i = 1; i <= TableScheme->column_count; ++i) {
+        RowNode* columnPointer = extractNode(Record, i-1);
+
+        // Check if columnPointer is not NULL before accessing its data
+        if (columnPointer != NULL) {
+            memcpy(serialized_data + totalOffset, columnPointer->data, get_size(columnPointer->type));
+            totalOffset += offsets[i];
+        }
+    }
+
     free(offsets);
     return serialized_data;
 }
 
+
+Row* deserialize_row(TableMap* T_Map, void* serialized_data){
+
+}
