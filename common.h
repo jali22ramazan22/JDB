@@ -3,6 +3,9 @@
 #define COMMON_H
 #define BUFFER 256
 #define MAX_NAME 64
+#define TABLE_MAX_PAGES 100
+#define PAGE_SIZE 4096
+#define ROWS_PER_PAGE (PAGE_SIZE / ROW_SIZE)
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -46,7 +49,7 @@ typedef struct {
     Datatype type;
     char column_name[BUFFER];
 }TableColumn;
-
+//The concrete TableScheme
 typedef struct{
     TableColumn* columns;
     size_t column_count;
@@ -57,10 +60,16 @@ typedef struct Container{
     Table* table_ptr;
 }TableContainer;
 
+//the HashMap that is supposed to store all schemes of any Table that have been created
 typedef struct{
     TableContainer* hash_table;
     size_t TableMap_Size;
 }TableMap;
 
+//The blocks of memory that will be stored until deserialized to user
+typedef struct{
+    uint32_t num_rows;
+    void* pages[TABLE_MAX_PAGES];
+}AbstractTableRecords;
 
 #endif

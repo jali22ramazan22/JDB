@@ -15,7 +15,6 @@ static bool run_test_tokenizer(char* input, int expected_count, char** expected_
             return false;
         }
     }
-
     return true;
 }
 
@@ -89,22 +88,35 @@ static void run_test_table_creation() {
 }
 
 
-void serializing_tests(){
+static void serializing_tests(){
     TableMap* T_Map = init_TableMap(100);
     insert_tables(T_Map);
-
-    Row* new_record_1 = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
-    Row* new_record_2 = InitRecord(T_Map, "Products", (void*[]){strdup("Shoes"), &(int){1}, &(double){39.99}, &(double){5.40}});
-    void* page_1 = serialize_row(new_record_1, T_Map, "Employees");
-    void* page_2 = serialize_row(new_record_2, T_Map, "Products");
+    Row* record_1 = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
+    Row* record_2 = InitRecord(T_Map, "Products", (void*[]){strdup("Shoes"), &(int){1}, &(double){39.99}, &(double){5.40}});
+    void* page_1 = serialize_row(record_1, T_Map, "Employees");
+    void* page_2 = serialize_row(record_2, T_Map, "Products");
     Row* recovered_record_1 = deserialize_row(T_Map, page_1);
     Row* recovered_record_2 = deserialize_row(T_Map, page_2);
     print_row(recovered_record_1);
+    print_row(recovered_record_2);
+
+    free_row(record_1);
+    free_row(record_2);
+    free_row(recovered_record_1);
+    free_row(recovered_record_2);
+
+    FreeTableMap(T_Map);
+    printf("All procedures related to serializing have been done successfully\n");
+
+}
+
+static void page_storing(){
+
 }
 
 
-
 int main(int argc, char** argv) {
+
     if(argc != 2){
         printf("[HINT] try the arguments related to the tests names\n");
         printf("[HINT]: \n'tokenizer_test' - 1 test\n'table_creation' - 2 test\n");
@@ -112,6 +124,7 @@ int main(int argc, char** argv) {
         return -1;
     }
 
+    //tests with tokenizer
     if(strcmp("tokenizer_test", argv[1]) == 0){
         printf("Test 1 %s\n", run_test_tokenizer("this is test 1", 4, (char*[]){"this", "is", "test", "1"}) ? "passed" : "failed");
         printf("Test 2 %s\n", run_test_tokenizer("", 0, NULL) ? "passed" : "failed");
@@ -119,10 +132,11 @@ int main(int argc, char** argv) {
         printf("Test 4 %s\n", run_test_tokenizer("a short test", 3, (char*[]){"a", "short", "test"}) ? "passed" : "failed");
         printf("Test 5 %s\n", run_test_tokenizer("one more test case", 4, (char*[]){"one", "more", "test", "case"}) ? "passed" : "failed");
     }
-
+    //tests with HashMap and Table
     else if(strcmp("table_creation", argv[1]) == 0){
         run_test_table_creation();
     }
+    //test with making records abstracts blocks of memory and recovering it
     else if(strcmp("serialize", argv[1]) == 0){
         serializing_tests();
     }

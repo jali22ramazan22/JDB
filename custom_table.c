@@ -226,8 +226,6 @@ Row* deserialize_row(TableMap* T_Map, void* serialized_data) {
         add_to_row(recovered_record, (serialized_data + totalOffset), TableScheme->columns[i-1].type);
         totalOffset += (int)offsets[i];
     }
-
     free(offsets);
-
     return recovered_record;
 }

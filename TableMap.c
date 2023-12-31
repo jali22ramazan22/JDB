@@ -38,7 +38,7 @@ void insertTable(TableMap* T_Map, Table* table){
     T_Map->hash_table[hashIndex].table_ptr = table;
 }
 
-Table* findTable(TableMap* T_Map, char* TableName) {
+Table* findTable(TableMap* T_Map, char* TableName){
     size_t hashIndex = hash(TableName, T_Map->TableMap_Size);
     if (T_Map->hash_table[hashIndex].table_ptr == NULL){
         printf("The given table '%s' does not exist.\n", TableName);

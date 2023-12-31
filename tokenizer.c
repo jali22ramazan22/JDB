@@ -75,6 +75,9 @@ char** tokenize_string(Input_Buffer* input_buffer){
 
 
     int offset = 0;
+    if(words_array == NULL){
+        return NULL;
+    }
     for (int i = 0; i < words_count; ++i) {
         words_array[i] = (char*)malloc(sizeof(char) * (words_len_array[i] + 1));
         strncpy(words_array[i], input_buffer->buffer + offset, words_len_array[i]);
