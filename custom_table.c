@@ -41,15 +41,13 @@ uint32_t get_size(Datatype type){
         case INT:
             return 4;
         case VARCHAR:
-            return 64;
+            return MAX_NAME;
         case DOUBLE:
             return 8;
         default:
             return 0;
     }
 }
-
-
 
 
 uint32_t* get_offsets(Table* table) {
@@ -215,7 +213,7 @@ void* serialize_row(Row* Record, TableMap* T_Map, char* TableName) {
     return serialized_data;
 }
 
-Row* deserialize_row(TableMap* T_Map, void* serialized_data) {
+Row* deserialize_row(TableMap* T_Map, void* serialized_data){
     size_t hashIndex = *((size_t*)serialized_data);
     Table* TableScheme = findTable(T_Map, T_Map->hash_table[hashIndex].table_ptr->tableName);
     uint32_t* offsets = get_offsets(TableScheme);

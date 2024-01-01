@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/JRD.dir/custom_table.c.o.d"
   "CMakeFiles/JRD.dir/main.c.o"
   "CMakeFiles/JRD.dir/main.c.o.d"
+  "CMakeFiles/JRD.dir/query_generator.c.o"
+  "CMakeFiles/JRD.dir/query_generator.c.o.d"
   "CMakeFiles/JRD.dir/tokenizer.c.o"
   "CMakeFiles/JRD.dir/tokenizer.c.o.d"
   "CMakeFiles/JRD.dir/utils.c.o"

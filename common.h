@@ -13,6 +13,7 @@
 #include <time.h>
 #include <stdint.h>
 #include <assert.h>
+#include <ctype.h>
 typedef enum{
     START_PROGRAM, //0
     LOOP_PROGRAM, //1

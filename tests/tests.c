@@ -111,6 +111,10 @@ static void serializing_tests(){
 }
 
 static void page_storing(){
+    TableMap* T_Map = init_TableMap(100);
+    insert_tables(T_Map);
+    Row* record_1 = InitRecord(T_Map, "Employees", (void*[]){&(int){1}, &(double){5000.0}, strdup("John")});
+    Row* record_2 = InitRecord(T_Map, "Products", (void*[]){strdup("Shoes"), &(int){1}, &(double){39.99}, &(double){5.40}});
 
 }
 

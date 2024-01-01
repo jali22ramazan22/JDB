@@ -84,6 +84,13 @@ build CMakeFiles/JRD.dir/TableMap.c.o: C_COMPILER__JRD_unscanned_Debug /home/jal
   OBJECT_DIR = CMakeFiles/JRD.dir
   OBJECT_FILE_DIR = CMakeFiles/JRD.dir
 
+build CMakeFiles/JRD.dir/query_generator.c.o: C_COMPILER__JRD_unscanned_Debug /home/jalil/Desktop/SimpleSQL-like_DB/query_generator.c || cmake_object_order_depends_target_JRD
+  DEP_FILE = CMakeFiles/JRD.dir/query_generator.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/home/jalil/Desktop/SimpleSQL-like_DB/src
+  OBJECT_DIR = CMakeFiles/JRD.dir
+  OBJECT_FILE_DIR = CMakeFiles/JRD.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target JRD
@@ -92,7 +99,7 @@ build CMakeFiles/JRD.dir/TableMap.c.o: C_COMPILER__JRD_unscanned_Debug /home/jal
 #############################################
 # Link the executable JRD
 
-build JRD: C_EXECUTABLE_LINKER__JRD_Debug CMakeFiles/JRD.dir/main.c.o CMakeFiles/JRD.dir/utils.c.o CMakeFiles/JRD.dir/tokenizer.c.o CMakeFiles/JRD.dir/custom_table.c.o CMakeFiles/JRD.dir/TableMap.c.o
+build JRD: C_EXECUTABLE_LINKER__JRD_Debug CMakeFiles/JRD.dir/main.c.o CMakeFiles/JRD.dir/utils.c.o CMakeFiles/JRD.dir/tokenizer.c.o CMakeFiles/JRD.dir/custom_table.c.o CMakeFiles/JRD.dir/TableMap.c.o CMakeFiles/JRD.dir/query_generator.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/JRD.dir
   POST_BUILD = :

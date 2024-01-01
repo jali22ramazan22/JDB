@@ -59,6 +59,7 @@ CMakeFiles/JRD.dir/main.c.o: /home/jalil/Desktop/SimpleSQL-like_DB/main.c \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/assert.h \
- /home/jalil/Desktop/SimpleSQL-like_DB/utils.h \
+ /usr/include/ctype.h /home/jalil/Desktop/SimpleSQL-like_DB/utils.h \
+ /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.h \
  /home/jalil/Desktop/SimpleSQL-like_DB/custom_table.h \
- /home/jalil/Desktop/SimpleSQL-like_DB/TableMap.h
+ /home/jalil/Desktop/SimpleSQL-like_DB/query_generator.h

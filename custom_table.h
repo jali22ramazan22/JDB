@@ -13,7 +13,6 @@ void free_table(Table* table);
 //The functions to get offsets for future serialization
 uint32_t get_size(Datatype type);
 uint32_t* get_offsets(Table* table);
-uint32_t* get_offsets_new(Table* table);
 /* The row manipulations according the runtime tables */
 /* To store in RAM the writings for concrete table */
 typedef struct node {

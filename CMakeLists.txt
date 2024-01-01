@@ -4,6 +4,8 @@ add_subdirectory(tests)
 enable_testing()
 add_executable(JRD main.c utils.c tokenizer.c custom_table.c
         TableMap.c
-        TableMap.h)
+        TableMap.h
+        query_generator.c
+        query_generator.h)
 target_include_directories(JRD PRIVATE src)
 set_target_properties(JRD PROPERTIES C_STANDARD 11)

@@ -14,4 +14,6 @@ void insertTable(TableMap* T_Map, Table* table);
 Table* findTable(TableMap* T_Map, char* TableName);
 void FreeTableMap(TableMap* T_Map);
 void DropTable(TableMap* T_Map, char* TableName);
+void PrintAllTables(TableMap* T_Map);
+
 #endif

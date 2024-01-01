@@ -38,3 +38,13 @@ struct tm* print_time(void){
     struct tm* tm = localtime(&t);
     return tm;
 }
+
+void to_lower_string(char* string){
+    if(string == NULL){
+        return;
+    }
+    size_t len = strlen(string);
+    for(size_t i = 0; i < len; ++i){
+        string[i] = (char)tolower((unsigned char)string[i]);
+    }
+}

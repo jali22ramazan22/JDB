@@ -51,7 +51,21 @@ void DropTable(TableMap* T_Map, char* TableName){
     Table* DroppingTable = findTable(T_Map, TableName);
     free_table(DroppingTable);
 }
-
+void PrintAllTables(TableMap* T_Map){
+    if(T_Map == NULL){
+        return;
+    }
+    int any = 0;
+    for(int i = 0; i < T_Map->TableMap_Size; ++i){
+        if(T_Map->hash_table[i].table_ptr != NULL){
+            any = 1;
+            printf("Found table '%s'\n", T_Map->hash_table[i].table_ptr->tableName);
+        }
+    }
+    if(any == 0){
+        printf("No table has been found\n");
+    }
+}
 void FreeTableMap(TableMap* T_Map){
     for(int i = 0; i < T_Map->TableMap_Size; ++i){
         if(T_Map->hash_table[i].table_ptr != NULL){

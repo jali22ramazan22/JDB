@@ -224,6 +224,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/main.c.s
 .PHONY : main.c.s
 
+query_generator.o: query_generator.c.o
+.PHONY : query_generator.o
+
+# target to build an object file
+query_generator.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/query_generator.c.o
+.PHONY : query_generator.c.o
+
+query_generator.i: query_generator.c.i
+.PHONY : query_generator.i
+
+# target to preprocess a source file
+query_generator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/query_generator.c.i
+.PHONY : query_generator.c.i
+
+query_generator.s: query_generator.c.s
+.PHONY : query_generator.s
+
+# target to generate assembly for a file
+query_generator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JRD.dir/build.make CMakeFiles/JRD.dir/query_generator.c.s
+.PHONY : query_generator.c.s
+
 tokenizer.o: tokenizer.c.o
 .PHONY : tokenizer.o
 
@@ -292,6 +316,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... query_generator.o"
+	@echo "... query_generator.i"
+	@echo "... query_generator.s"
 	@echo "... tokenizer.o"
 	@echo "... tokenizer.i"
 	@echo "... tokenizer.s"

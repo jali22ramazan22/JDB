@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jalil/Desktop/SimpleSQL-like_DB/TableMap.c" "CMakeFiles/JRD.dir/TableMap.c.o" "gcc" "CMakeFiles/JRD.dir/TableMap.c.o.d"
   "/home/jalil/Desktop/SimpleSQL-like_DB/custom_table.c" "CMakeFiles/JRD.dir/custom_table.c.o" "gcc" "CMakeFiles/JRD.dir/custom_table.c.o.d"
   "/home/jalil/Desktop/SimpleSQL-like_DB/main.c" "CMakeFiles/JRD.dir/main.c.o" "gcc" "CMakeFiles/JRD.dir/main.c.o.d"
+  "/home/jalil/Desktop/SimpleSQL-like_DB/query_generator.c" "CMakeFiles/JRD.dir/query_generator.c.o" "gcc" "CMakeFiles/JRD.dir/query_generator.c.o.d"
   "/home/jalil/Desktop/SimpleSQL-like_DB/tokenizer.c" "CMakeFiles/JRD.dir/tokenizer.c.o" "gcc" "CMakeFiles/JRD.dir/tokenizer.c.o.d"
   "/home/jalil/Desktop/SimpleSQL-like_DB/utils.c" "CMakeFiles/JRD.dir/utils.c.o" "gcc" "CMakeFiles/JRD.dir/utils.c.o.d"
   )

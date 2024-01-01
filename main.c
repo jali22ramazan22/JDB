@@ -1,30 +1,46 @@
 #include "tokenizer.h"
 #include "common.h"
 #include "utils.h"
+#include "query_generator.h"
 #include "custom_table.h"
-static __ssize_t TableMap_size = 5;
 
-
-
-
+static size_t TABLE_MAP_SIZE = 100;
+void print_logo(){
+    printf("\n"
+           "   $$$$$\\ $$$$$$$\\  $$$$$$$\\  \n"
+           "   \\__$$ |$$  __$$\\ $$  __$$\\ \n"
+           "      $$ |$$ |  $$ |$$ |  $$ |\n"
+           "      $$ |$$$$$$$  |$$ |  $$ |\n"
+           "$$\\   $$ |$$  __$$< $$ |  $$ |\n"
+           "$$ |  $$ |$$ |  $$ |$$ |  $$ |\n"
+           "\\$$$$$$  |$$ |  $$ |$$$$$$$  |\n"
+           " \\______/ \\__|  \\__|\\_______/ \n"
+           "                              \n"
+           "                              \n");
+}
 
 void print_prompt(int status){
     if(status == START_PROGRAM){
+        print_logo();
         struct tm* tm = print_time();
         printf("JDB. version 0.1. Clone of SQLite3 >> %s", asctime(tm));
         printf("HINT: use the '.help' to see the all commands\n");
-        printf("The support on hard-coded table only with columns: id, username, email\n");
+        printf("There's the support with dynamic tables with custom columns with types (INTEGER, VARCHAR, DOUBLE)\n");
+        printf("Due to the lack of parser you should guarantee that your input is correct, otherwise the behavior of program is undefined\n\n");
         printf("Done by Jalil Ramazan and inspired by https://cstack.github.io/db_tutorial/ \n");
+        printf("// \"create table <NAME> with columns <NAME> <DATATYPE>, ...\"\n"
+               "// \"insert in table <NAME> values <VALUE_1>, <VALUE_2> ...\"\n"
+               "// \"select <COLUMN 1> <COLUMN 2> ...  from table <NAME> where <EXPRESSION> \"\n");
         return;
     }
     printf("db > ");
 }
 
 void print_hint(void){
-    printf(".exit - stop the program\n.help - show all commands\n");
+    printf(".exit - stop the program\n.help - show all commands\n.all_tables - print all tables\n");
 }
 
-MetaCommandResult do_meta_command(Input_Buffer* input_buffer){
+MetaCommandResult do_meta_command(Input_Buffer* input_buffer, TableMap* T_Map){
     if(strcmp(input_buffer->buffer, ".exit") == 0){
         close_input_buffer(input_buffer);
         exit(EXIT_SUCCESS);
@@ -33,47 +49,47 @@ MetaCommandResult do_meta_command(Input_Buffer* input_buffer){
         print_hint();
         return META_COMMAND_SUCCESS;
     }
+    else if(strcmp(input_buffer->buffer, ".all_tables") == 0){
+        PrintAllTables(T_Map);
+        return META_COMMAND_SUCCESS;
+    }
     else{
         return META_COMMAND_UNDEFINED;
     }
 }
 
-//just tokenizing the string
-void temporary(Input_Buffer* input_buffer){
-    read_input(input_buffer);
-    char** tokenized_buffer = tokenize_string(input_buffer);
-    for(int i = 0; i < count_words(input_buffer->buffer, input_buffer->buffer_length); ++i){
-        printf("%s\n", tokenized_buffer[i]);
-    }
-}
+
+// "create table <NAME> with columns <NAME> <DATATYPE>, ..."
+// "insert in table <NAME> values <VALUE_1>, <VALUE_2> ..."
+// "select <COLUMN 1> <COLUMN 2> ...  from table <NAME> where <EXPRESSION> "
 
 
-PrepareResult prepare_statement(Input_Buffer* input_buffer, Statement* statement) {
-  if(strncmp(input_buffer->buffer, "insert", 6) == 0) {
+PrepareResult prepare_statement(char** tokenized_input, Statement* statement) {
+  if(strcmp(tokenized_input[0], "insert") == 0) {
     statement->type = STATEMENT_INSERT;
     return PREPARE_SUCCESS;
   }
-  if(strcmp(input_buffer->buffer, "select") == 0) {
+  if(strcmp(tokenized_input[0], "select") == 0) {
     statement->type = STATEMENT_SELECT;
     return PREPARE_SUCCESS;
   }
-  if(strcmp(input_buffer->buffer, "create") == 0){
+  if(strcmp(tokenized_input[0], "create") == 0){
     statement->type = STATEMENT_CREATE;
     return PREPARE_SUCCESS;
   }
   return PREPARE_UNRECOGNIZED_STATEMENT;
 }
 
-void execute_statement(Statement* statement) {
+void execute_statement(Statement* statement, char** tokenized_input, size_t tokens_count, TableMap* T_Map) {
     switch (statement->type) {
         case (STATEMENT_INSERT):
-            printf("This is where we would do an insert.\n");
+            QueryInsert(tokenized_input, tokens_count, T_Map);
             break;
         case (STATEMENT_SELECT):
-            printf("This is where we would do a select.\n");
+            QuerySelect(tokenized_input, tokens_count, T_Map);
             break;
         case (STATEMENT_CREATE):
-            printf("This is where we would do a create.\n");
+            QueryCreate(tokenized_input, tokens_count, T_Map);
             break;
     }
 }
@@ -82,14 +98,14 @@ void execute_statement(Statement* statement) {
 
 int main(int argc, char** argv){
     Input_Buffer* input_buffer = new_input_buffer();
+    TableMap* T_Map = init_TableMap(TABLE_MAP_SIZE);
     print_prompt(START_PROGRAM);
 
     while(true){
         print_prompt(LOOP_PROGRAM);
-
         read_input(input_buffer);
         if(input_buffer->buffer[0] == '.'){
-            switch(do_meta_command(input_buffer)){
+            switch(do_meta_command(input_buffer, T_Map)){
                 case META_COMMAND_SUCCESS:
                     continue;
                 case META_COMMAND_UNDEFINED:
@@ -97,16 +113,22 @@ int main(int argc, char** argv){
                     continue;
             }
         }
-        
-        Statement statement;
-        switch (prepare_statement(input_buffer, &statement)){
-            case (PREPARE_SUCCESS):
-                break;
-            case (PREPARE_UNRECOGNIZED_STATEMENT):
-                printf("Unrecognized keyword at start of '%s'.\n", input_buffer->buffer);
-                continue;
-            execute_statement(&statement);
-            printf("Executed.\n");
+        else{
+            size_t tokens_count = 0;
+            char** tokenized_input = tokenize_string(input_buffer, &tokens_count);
+            Statement statement;
+            switch (prepare_statement(tokenized_input, &statement)){
+                case (PREPARE_SUCCESS):
+                    execute_statement(&statement, tokenized_input, tokens_count, T_Map);
+                    printf("Executed.\n");
+                    break;
+                case (PREPARE_UNRECOGNIZED_STATEMENT):
+                    printf("Unrecognized keyword at start of '%s'.\n", input_buffer->buffer);
+                    continue;
+
+            }
         }
+
     }
+    close_input_buffer(input_buffer);
 }

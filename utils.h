@@ -13,6 +13,7 @@ void close_input_buffer(Input_Buffer*);
 void read_input(Input_Buffer*);
 
 void autocomplete_input(Input_Buffer*);
+void to_lower_string(char* string);
 
 struct tm* print_time(void);
 
