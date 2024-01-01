@@ -18,3 +18,8 @@
 - cd SimpleSQL-like_DB/ && mkdir build
 - cd build && cmake --build .
 - ./JRD
+
+
+## The origins
+Inspired by https://cstack.github.io/db_tutorial/ tutorial. However, the tutorial goes along the hardcoded table support. So I've been trying to implement the dynamic table support for
+this project. I don't know will i use or write the parser, but i've decided to write and hope that user guarantees to write the proper input.
