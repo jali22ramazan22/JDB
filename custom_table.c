@@ -44,6 +44,8 @@ uint32_t get_size(Datatype type){
             return MAX_NAME;
         case DOUBLE:
             return 8;
+        case BOOLEAN:
+            return 1;
         default:
             return 0;
     }
@@ -120,6 +122,8 @@ void print_row(Row* row) {
             case DOUBLE:
                 printf("Type: DOUBLE, Value: %lf\n", *((double*)current->data));
                 break;
+            case BOOLEAN:
+                printf("Type: BOOLEAN, Value: %b\n", *((bool*)current->data));
             default:
                 printf("Unknown Type\n");
                 break;

@@ -59,9 +59,14 @@ void PrintAllTables(TableMap* T_Map){
     for(int i = 0; i < T_Map->TableMap_Size; ++i){
         if(T_Map->hash_table[i].table_ptr != NULL){
             any = 1;
-            printf("Found table '%s'\n", T_Map->hash_table[i].table_ptr->tableName);
+            printf("Found table '%s' with columns ", T_Map->hash_table[i].table_ptr->tableName);
+            for(int j = 0; j < T_Map->hash_table[i].table_ptr->column_count; ++j) {
+                printf("'%s', ", T_Map->hash_table[i].table_ptr->columns[j].column_name);
+            }
         }
+
     }
+    printf("\n");
     if(any == 0){
         printf("No table has been found\n");
     }

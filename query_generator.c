@@ -17,6 +17,9 @@ int CastStringToDatatype(char* expected_datatype){
     else if(strcmp(expected_datatype, "double") == 0){
         return DOUBLE;
     }
+    else if(strcmp(expected_datatype, "bool") == 0 || (strcmp(expected_datatype, "boolean")) == 0){
+        return BOOLEAN;
+    }
 }
 
 void FreeDataTypeValue(void* value, int datatype) {
@@ -34,6 +37,10 @@ void FreeDataTypeValue(void* value, int datatype) {
     else if(datatype == VARCHAR){
         char* char_to_free = (char*)value;
         free(char_to_free);
+    }
+    else if(datatype == BOOLEAN){
+        bool* bool_to_free = (bool*)value;
+        free(bool_to_free);
     }
 }
 
@@ -59,7 +66,18 @@ void* CastStringValueToDatatypeValue(char* expected_value, int datatype) {
             value = data;
         }
     }
-
+    else if(datatype == BOOLEAN){
+        bool* data = (bool*)malloc(sizeof(bool));
+        if(data != NULL){
+            if(strcmp(expected_value, "false") == 0){
+                *data = false;
+            }
+            else{
+                *data = true;
+            }
+            value = data;
+        }
+    }
     return value;
 }
 
@@ -88,7 +106,7 @@ void QueryCreate(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
     free(ColumnNames);
 }
 
-//Unfinished.
+
 void* QueryInsert(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
     if(tokenized_input == NULL)
         return NULL;
@@ -104,7 +122,7 @@ void* QueryInsert(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
 
     for(int i = 0; i < TableScheme->column_count; ++i){
         if(values != NULL && TableScheme->columns != NULL){
-            *(values + sizeof(void*)) = CastStringValueToDatatypeValue(tokenized_input[i+5], TableScheme->columns[i].type);
+            values[i] = CastStringValueToDatatypeValue(tokenized_input[i+5], TableScheme->columns[i].type);
         }
     }
     Row* new_record = InitRecord(T_Map, tokenized_input[3], values);
@@ -121,6 +139,19 @@ void* QueryInsert(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
 
 //Difficult to implement without B_tree implementation
 void QuerySelect(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
+    if(tokenized_input == NULL)
+        return;
+    char* TableName; int i;
+    for(i = 1; i < tokens_count; ++i){
+        if(strcmp("from", tokenized_input[i++]) == 0){
+           break;
+        }
+    }
+    TableName = strdup(tokenized_input[i]);
+    Table* TableScheme = findTable(T_Map, TableName);
 
+
+
+    free(TableName);
 }
 

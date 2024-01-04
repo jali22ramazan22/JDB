@@ -48,3 +48,4 @@ void to_lower_string(char* string){
         string[i] = (char)tolower((unsigned char)string[i]);
     }
 }
+

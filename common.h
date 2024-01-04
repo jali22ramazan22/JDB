@@ -3,9 +3,11 @@
 #define COMMON_H
 #define BUFFER 256
 #define MAX_NAME 64
+
 #define TABLE_MAX_PAGES 100
 #define PAGE_SIZE 4096
 #define ROWS_PER_PAGE (PAGE_SIZE / ROW_SIZE)
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -42,7 +44,8 @@ typedef struct{
 typedef enum{
     INT,
     VARCHAR,
-    DOUBLE
+    DOUBLE,
+    BOOLEAN
 } Datatype;
 
 
