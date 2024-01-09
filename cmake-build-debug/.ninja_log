@@ -15,3 +15,9 @@
 1	33	1703930832811009626	tests/CMakeFiles/tests.dir/__/custom_table.c.o	baf6024601a03f3c
 0	30	1704371058255368660	CMakeFiles/JRD.dir/query_generator.c.o	d710d5db80bb6757
 30	43	1704371058271368715	JRD	baae3b6a03919912
+1	25	1704371318384698136	tests/CMakeFiles/tests.dir/__/utils.c.o	e3d013eacf5bb41c
+0	27	1704371318388698163	tests/CMakeFiles/tests.dir/__/tokenizer.c.o	f9e334390f5cc68e
+1	28	1704371318388698163	tests/CMakeFiles/tests.dir/__/TableMap.c.o	f969e9cf4e4a1c0e
+1	35	1704371318392698189	tests/CMakeFiles/tests.dir/__/custom_table.c.o	baf6024601a03f3c
+0	34	1704371390217195752	tests/CMakeFiles/tests.dir/tests.c.o	1decb52ad506fed
+34	48	1704371390229195839	tests/tests	2095ef10a55225a8

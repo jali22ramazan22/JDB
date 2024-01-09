@@ -130,5 +130,6 @@ int main(int argc, char** argv){
         }
 
     }
+    FreeTableMap(T_Map);
     close_input_buffer(input_buffer);
 }

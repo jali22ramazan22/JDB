@@ -51,6 +51,7 @@ void DropTable(TableMap* T_Map, char* TableName){
     Table* DroppingTable = findTable(T_Map, TableName);
     free_table(DroppingTable);
 }
+
 void PrintAllTables(TableMap* T_Map){
     if(T_Map == NULL){
         return;

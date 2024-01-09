@@ -9,7 +9,7 @@ static bool run_test_tokenizer(char* input, int expected_count, char** expected_
     Input_Buffer* input_buffer = new_input_buffer();
     input_buffer->buffer = input;
     input_buffer->buffer_length = strlen(input);
-    char** result = tokenize_string(input_buffer);
+    char** result = tokenize_string(input_buffer, (size_t *) &expected_count);
     for (int i = 0; i < expected_count; ++i) {
         if (strcmp(result[i], expected_tokens[i]) != 0) {
             return false;

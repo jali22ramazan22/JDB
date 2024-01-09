@@ -98,7 +98,7 @@ void QueryCreate(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
             j++;
         }
     }
-    Table* NewTableScheme = create_table(datatypes, ColumnNames, (int)columns_count, tokenized_input[2]);
+    Table* NewTableScheme = create_table(datatypes, (const char **) ColumnNames, (int)columns_count, tokenized_input[2]);
     insertTable(T_Map, NewTableScheme);
     for(int i = 0; i < columns_count; ++i){
         free(ColumnNames[i]);
@@ -139,7 +139,7 @@ void* QueryInsert(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
 
 //Difficult to implement without B_tree implementation
 void QuerySelect(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
-    if(tokenized_input == NULL)
+    /* if(tokenized_input == NULL)
         return;
     char* TableName; int i;
     for(i = 1; i < tokens_count; ++i){
@@ -150,8 +150,6 @@ void QuerySelect(char** tokenized_input, size_t tokens_count, TableMap* T_Map){
     TableName = strdup(tokenized_input[i]);
     Table* TableScheme = findTable(T_Map, TableName);
 
-
-
-    free(TableName);
+    free(TableName);*/
 }
 
